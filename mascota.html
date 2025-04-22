@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mascota - Guardianes Verdes</title>
+    <link href="funtes/gill-sans-2/Gill Sans Heavy Italic.otf" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header class="scrolling-header">
+        <div class="header-content">
+            <div class="logo">
+                <img src="imagenes/logo horizontal.png" alt="Logo Guardianes Verdes">
+            </div>
+            <!-- Botón hamburguesa -->
+        <button class="menu-toggle">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        
+        <!-- Menú de navegación -->
+        <nav class="nav-links">
+            <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="proyecto.html">Proyecto</a></li>
+                    <li><a href="mascota.html">Mascota</a></li>
+                    <li><a href="galeria.html">Galería</a></li>
+                    <li><a href="interactivo.html">Interactivo</a></li>
+                    <li><a href="videojuego.html">Videojuego</a></li>
+                </ul>
+            </nav>
+        </div>
+        <script>
+            // Toggle del menú
+document.querySelector('.menu-toggle').addEventListener('click', function() {
+    this.classList.toggle('active');
+    document.querySelector('.nav-links').classList.toggle('active');
+});
+
+// Cerrar menú al hacer click en enlace
+document.querySelectorAll('.nav-links ul li a').forEach(link => {
+    link.addEventListener('click', () => {
+        document.querySelector('.menu-toggle').classList.remove('active');
+        document.querySelector('.nav-links').classList.remove('active');
+    });
+});
+
+// Cerrar menú al hacer click fuera
+document.addEventListener('click', (e) => {
+    if (!e.target.closest('.nav-links') && !e.target.closest('.menu-toggle')) {
+        document.querySelector('.menu-toggle').classList.remove('active');
+        document.querySelector('.nav-links').classList.remove('active');
+    }
+});
+        </script>
+    </header>
+
+    <main class="content-wrapper">
+        <section class="characters-section" class="dynamic-background">
+            <h1 class="section-title">Nuestros Héroes Verdes</h1>
+            
+            <div class="characters-grid">
+                <!-- Shelly -->
+                <div class="character-card">
+                    <div class="gif-container">
+                        <img src="imagenes/shelly.gif" alt="Shelly" class="character-gif">
+                    </div>
+                    <div class="character-info">
+                        <h2>Shelly</h2>
+                        <p class="character-role">Líder Tortuga</p>
+                        <div class="character-skills">
+                            <span><i class="fas fa-leaf"></i> Purificación</span>
+                            <span><i class="fas fa-shield-alt"></i> Defensa</span>
+                        </div>
+                    </div>
+                </div>
+        
+                <!-- Capibara -->
+                <div class="character-card">
+                    <div class="gif-container">
+                        <img src="imagenes/capibara.gif" alt="SuperRecicla" class="character-gif">
+                    </div>
+                    <div class="character-info">
+                        <h2>Cyclo</h2>
+                        <p class="character-role">El Catalizador Verde</p>
+                        <div class="character-skills">
+                            <span><i class="fas fa-trash-restore"></i> Metamorfosis de Residuos</span>
+                            <span><i class="fas fa-running"></i> Turbo Reciclaje</span>
+                            <span><i class="fas fa-running"></i> Barrera Bioplástica</span>
+                        </div>
+                    </div>
+                </div>
+        
+                <!-- Conejo -->
+                <div class="character-card">
+                    <div class="gif-container">
+                        <img src="imagenes/conejo.gif" alt="EcoGirl" class="character-gif">
+                    </div>
+                    <div class="character-info">
+                        <h2>Boreas</h2>
+                        <p class="character-role">El Torbellino del Bosque</p>
+                        <div class="character-skills">
+                            <span><i class="fas fa-tree"></i> Huracán de Semillas</span>
+                            <span><i class="fas fa-wind"></i> Nube Purificadora</span>
+                            <span><i class="fas fa-tree"></i> Camuflaje Silvestre</span>
+                        </div>
+                    </div>
+                </div>
+        
+                <!-- Hada -->
+                <div class="character-card">
+                    <div class="gif-container">
+                        <img src="imagenes/hada.gif" alt="BioBoy" class="character-gif">
+                    </div>
+                    <div class="character-info">
+                        <h2>Lirael</h2>
+                        <p class="character-role">La Guardiana de los Bosques Brillantes</p>
+                        <div class="character-skills">
+                            <span><i class="fas fa-water"></i> Toque de renacer</span>
+                            <span><i class="fas fa-fish"></i> Inovación de Faunasilva</span>
+                            <span><i class="fas fa-shield-alt"></i> Barrera de luz ferica</span>
+                        </div>
+                    </div>
+                </div>
+        
+                <!-- Cuerpo Espin -->
+                <div class="character-card">
+                    <div class="gif-container">
+                        <img src="imagenes/cuerpo espin.gif" alt="EcoWarrior" class="character-gif">
+                    </div>
+                    <div class="character-info">
+                        <h2>Solaris</h2>
+                        <p class="character-role">La Centinela del Sol</p>
+                        <div class="character-skills">
+                            <span><i class="fas fa-sun"></i> Fotosíntesis Explosiva</span>
+                            <span><i class="fas fa-bolt"></i> Espinas Fotovoltaicas</span>
+                            <span><i class="fas fa-power-off"></i> Eclipse Verde</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Sección Villano -->
+        <section class="villain-section">
+            <div class="villain-card">
+                <div class="villain-header">
+                    <h2>Ratacóptero</h2>
+                    <div class="villain-tag">Amenaza Máxima</div>
+                </div>
+                <div class="villain-content">
+                    <div class="gif-container">
+                        <img src="imagenes/RATACOPTERO.gif" alt="Ratacóptero" class="villain-gif">
+                    </div>
+                    <div class="villain-skills">
+                        <div class="skill-item danger">
+                            <i class="fas fa-biohazard"></i>
+                            <p>Contaminación Tóxica</p>
+                        </div>
+                        <div class="skill-item danger">
+                            <i class="fas fa-trash"></i>
+                            <p>Generación de Basura</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+
+    <footer>
+        <div class="social-media">
+            <a href="https://www.facebook.com/share/1GmM4wn7yf/" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com/guardianesverdes_7/" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.tiktok.com/@guardianesverdes1?_t=ZS-8ueEfgTIrSu&_r=1" target="_blank"><i class="fab fa-tiktok"></i></a>
+            <a href="https://www.youtube.com/@Guardianes_Verdes" target="_blank"><i class="fab fa-youtube"></i></a>
+            <a href="https://x.com/GuardianesVer_" target="_blank"><i class="fab fa-twitter"></i></a>
+        </div>
+    </footer>
+
+    <script>
+
+        // Animación al hacer scroll
+        const teamMembers = document.querySelectorAll('.team-member');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        teamMembers.forEach(member => {
+            observer.observe(member);
+        });
+
+        // Cambio de header al hacer scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.background = 'rgba(28, 60, 29, 0.95)';
+            } else {
+                header.style.background = 'rgba(28, 60, 29, 0.9)';
+            }
+        });
+
+        // Animación del menú hamburguesa
+        document.getElementById('menu-toggle').addEventListener('change', function() {
+            const menuIcon = document.querySelector('.menu-icon');
+            if (this.checked) {
+                menuIcon.classList.add('active');
+            } else {
+                menuIcon.classList.remove('active');
+            }
+        });
+
+        // Cerrar menú al hacer click en un enlace (mobile)
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('menu-toggle').checked = false;
+            });
+        });
+
+        
+    </script>
+</body>
+</html>

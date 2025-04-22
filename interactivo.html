@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactivo - Guardianes Verdes</title>
+    <link href="funtes/gill-sans-2/Gill Sans Heavy Italic.otf" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header class="scrolling-header">
+        <div class="header-content">
+            <div class="logo">
+                <img src="imagenes/logo horizontal.png" alt="Logo Guardianes Verdes">
+            </div>
+            <!-- Botón hamburguesa -->
+        <button class="menu-toggle">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        
+        <!-- Menú de navegación -->
+        <nav class="nav-links">
+            <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="proyecto.html">Proyecto</a></li>
+                    <li><a href="mascota.html">Mascota</a></li>
+                    <li><a href="galeria.html">Galería</a></li>
+                    <li><a href="interactivo.html">Interactivo</a></li>
+                    <li><a href="videojuego.html">Videojuego</a></li>
+                </ul>
+            </nav>
+        </div>
+        <script>
+            // Toggle del menú
+document.querySelector('.menu-toggle').addEventListener('click', function() {
+    this.classList.toggle('active');
+    document.querySelector('.nav-links').classList.toggle('active');
+});
+
+// Cerrar menú al hacer click en enlace
+document.querySelectorAll('.nav-links ul li a').forEach(link => {
+    link.addEventListener('click', () => {
+        document.querySelector('.menu-toggle').classList.remove('active');
+        document.querySelector('.nav-links').classList.remove('active');
+    });
+});
+
+// Cerrar menú al hacer click fuera
+document.addEventListener('click', (e) => {
+    if (!e.target.closest('.nav-links') && !e.target.closest('.menu-toggle')) {
+        document.querySelector('.menu-toggle').classList.remove('active');
+        document.querySelector('.nav-links').classList.remove('active');
+    }
+});
+        </script>
+    </header>
+    
+    <section id="realidad-aumentada">
+        <div class="contenedor-ar">
+            <div class="ar-content">
+                <h2 class="ar-title">¡Vive la Experiencia en<br><span>Realidad Aumentada</span></h2>
+                <div class="ar-character"></div>
+                <a href="https://goye1410.github.io/tortuga3bq348/" 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   class="btn-ar">
+                   <span class="btn-text">Activar AR</span>
+                   <div class="btn-glare"></div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="interactivo">
+        <div id="menu-principal" class="visible">
+            <div class="quiz-header">
+                <h2 class="quiz-title">DESAFÍO<br><span>ECOLÓGICO</span></h2>
+                <div class="quiz-character"></div>
+            </div>
+        </div>
+        
+        <div id="cuestionario" class="hidden">
+            <div class="quiz-progress">
+                <div class="progress-bar"></div>
+                <span class="progress-text">Pregunta <span id="current-question">1</span>/10</span>
+            </div>
+    
+            <form id="quiz-form" class="quiz-container">
+                <!-- Pregunta 1 -->
+                <div class="pregunta active" id="pregunta1">
+                    <div class="question-header">
+                        <span class="question-number">01</span>
+                        <h3>¿Qué hacer con las botellas plásticas?</h3>
+                    </div>
+                    <div class="options-grid">
+                        <label class="option-card wrong">
+                            <input type="radio" name="p1" value="a">
+                            <div class="option-content">
+                                <span class="option-icon">🗑️</span>
+                                <span class="option-text">Basura normal</span>
+                            </div>
+                        </label>
+                        <label class="option-card correct">
+                            <input type="radio" name="p1" value="b">
+                            <div class="option-content">
+                                <span class="option-icon">♻️</span>
+                                <span class="option-text">Reciclaje</span>
+                            </div>
+                        </label>
+                        <label class="option-card wrong">
+                            <input type="radio" name="p1" value="c">
+                            <div class="option-content">
+                                <span class="option-icon">⚰️</span>
+                                <span class="option-text">Enterrar</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+    
+                <!-- Pregunta 2 -->
+                <div class="pregunta hidden" id="pregunta2">
+                    <div class="question-header">
+                        <span class="question-number">02</span>
+                        <h3>¿Contenedor para papel?</h3>
+                    </div>
+                    <div class="options-grid">
+                        <label class="option-card correct">
+                            <input type="radio" name="p2" value="a">
+                            <div class="option-content">
+                                <span class="option-icon">🔵</span>
+                                <span class="option-text">Azul</span>
+                            </div>
+                        </label>
+                        <label class="option-card wrong">
+                            <input type="radio" name="p2" value="b">
+                            <div class="option-content">
+                                <span class="option-icon">🟢</span>
+                                <span class="option-text">Verde</span>
+                            </div>
+                        </label>
+                        <label class="option-card wrong">
+                            <input type="radio" name="p2" value="c">
+                            <div class="option-content">
+                                <span class="option-icon">🟡</span>
+                                <span class="option-text">Amarillo</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+    
+                <!-- Pregunta 3 -->
+                <div class="pregunta hidden" id="pregunta3">
+                    <div class="question-header">
+                        <span class="question-number">03</span>
+                        <h3>¿Dónde va el vidrio?</h3>
+                    </div>
+                    <div class="options-grid">
+                        <label class="option-card wrong">
+                            <input type="radio" name="p3" value="a">
+                            <div class="option-content">
+                                <span class="option-icon">🔵</span>
+                                <span class="option-text">Azul</span>
+                            </div>
+                        </label>
+                        <label class="option-card correct">
+                            <input type="radio" name="p3" value="b">
+                            <div class="option-content">
+                                <span class="option-icon">🟢</span>
+                                <span class="option-text">Verde</span>
+                            </div>
+                        </label>
+                        <label class="option-card wrong">
+                            <input type="radio" name="p3" value="c">
+                            <div class="option-content">
+                                <span class="option-icon">🟡</span>
+                                <span class="option-text">Amarillo</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+    
+                <!-- Pregunta 4 -->
+                <div class="pregunta hidden" id="pregunta4">
+                    <div class="question-header">
+                        <span class="question-number">04</span>
+                        <h3>Envases plásticos a...</h3>
+                    </div>
+                    <div class="options-grid">
+                        <label class="option-card wrong">
+                            <input type="radio" name="p4" value="a">
+                            <div class="option-content">
+                                <span class="option-icon">🔵</span>
+                                <span class="option-text">Azul</span>
+                            </div>
+                        </label>
+                        <label class="option-card wrong">
+                            <input type="radio" name="p4" value="b">
+                            <div class="option-content">
+                                <span class="option-icon">🟢</span>
+                                <span class="option-text">Verde</span>
+                            </div>
+                        </label>
+                        <label class="option-card correct">
+                            <input type="radio" name="p4" value="c">
+                            <div class="option-content">
+                                <span class="option-icon">🟡</span>
+                                <span class="option-text">Amarillo</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+    
+                <!-- Pregunta 5 -->
+                <div class="pregunta hidden" id="pregunta5">
+                    <div class="question-header">
+                        <span class="question-number">05</span>
+                        <h3>Residuos orgánicos</h3>
+                    </div>
+                    <div class="options-grid">
+                        <label class="option-card wrong">
+                            <input type="radio" name="p5" value="a">
+                            <div class="option-content">
+                                <span class="option-icon">🗑️</span>
+                                <span class="option-text">Contenedor gris</span>
+                            </div>
+                        </label>
+                        <label class="option-card correct">
+                            <input type="radio" name="p5" value="b">
+                            <div class="option-content">
+                                <span class="option-icon">🌱</span>
+                                <span class="option-text">Compostaje</span>
+                            </div>
+                        </label>
+                        <label class="option-card wrong">
+                            <input type="radio" name="p5" value="c">
+                            <div class="option-content">
+                                <span class="option-icon">🔥</span>
+                                <span class="option-text">Incinerar</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+    
+                <!-- Pregunta 6 -->
+                <div class="pregunta hidden" id="pregunta6">
+                    <div class="question-header">
+                        <span class="question-number">06</span>
+                        <h3>¿Dónde tirar pilas?</h3>
+                    </div>
+                    <div class="options-grid">
+                        <label class="option-card wrong">
+                            <input type="radio" name="p6" value="a">
+                            <div class="option-content">
+                                <span class="option-icon">🟡</span>
+                                <span class="option-text">Contenedor amarillo</span>
+                            </div>
+                        </label>
+                        <label class="option-card correct">
+                            <input type="radio" name="p6" value="b">
+                            <div class="option-content">
+                                <span class="option-icon">📍</span>
+                                <span class="option-text">Punto limpio</span>
+                            </div>
+                        </label>
+                        <label class="option-card wrong">
+                            <input type="radio" name="p6" value="c">
+                            <div class="option-content">
+                                <span class="option-icon">⛏️</span>
+                                <span class="option-text">Enterrar</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+    
+                <!-- Pregunta 7 -->
+                <div class="pregunta hidden" id="pregunta7">
+                    <div class="question-header">
+                        <span class="question-number">07</span>
+                        <h3>Material no reciclable</h3>
+                    </div>
+                    <div class="options-grid">
+                        <label class="option-card wrong">
+                            <input type="radio" name="p7" value="a">
+                            <div class="option-content">
+                                <span class="option-icon">📄</span>
+                                <span class="option-text">Papel</span>
+                            </div>
+                        </label>
+                        <label class="option-card wrong">
+                            <input type="radio" name="p7" value="b">
+                            <div class="option-content">
+                                <span class="option-icon">🍶</span>
+                                <span class="option-text">Vidrio</span>
+                            </div>
+                        </label>
+                        <label class="option-card correct">
+                            <input type="radio" name="p7" value="c">
+                            <div class="option-content">
+                                <span class="option-icon">👶</span>
+                                <span class="option-text">Pañales</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+    
+                <!-- Pregunta 8 -->
+                <div class="pregunta hidden" id="pregunta8">
+                    <div class="question-header">
+                        <span class="question-number">08</span>
+                        <h3>Símbolo de tres flechas</h3>
+                    </div>
+                    <div class="options-grid">
+                        <label class="option-card wrong">
+                            <input type="radio" name="p8" value="a">
+                            <div class="option-content">
+                                <span class="option-icon">☠️</span>
+                                <span class="option-text">Tóxico</span>
+                            </div>
+                        </label>
+                        <label class="option-card correct">
+                            <input type="radio" name="p8" value="b">
+                            <div class="option-content">
+                                <span class="option-icon">♻️</span>
+                                <span class="option-text">Reciclable</span>
+                            </div>
+                        </label>
+                        <label class="option-card wrong">
+                            <input type="radio" name="p8" value="c">
+                            <div class="option-content">
+                                <span class="option-icon">🌿</span>
+                                <span class="option-text">Orgánico</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+    
+                <!-- Pregunta 9 -->
+                <div class="pregunta hidden" id="pregunta9">
+                    <div class="question-header">
+                        <span class="question-number">09</span>
+                        <h3>Aceite usado de cocina</h3>
+                    </div>
+                    <div class="options-grid">
+                        <label class="option-card wrong">
+                            <input type="radio" name="p9" value="a">
+                            <div class="option-content">
+                                <span class="option-icon">🚰</span>
+                                <span class="option-text">Tirar al drenaje</span>
+                            </div>
+                        </label>
+                        <label class="option-card correct">
+                            <input type="radio" name="p9" value="b">
+                            <div class="option-content">
+                                <span class="option-icon">📍</span>
+                                <span class="option-text">Punto limpio</span>
+                            </div>
+                        </label>
+                        <label class="option-card wrong">
+                            <input type="radio" name="p9" value="c">
+                            <div class="option-content">
+                                <span class="option-icon">🍳</span>
+                                <span class="option-text">Reutilizar</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+    
+                <!-- Pregunta 10 -->
+                <div class="pregunta hidden" id="pregunta10">
+                    <div class="question-header">
+                        <span class="question-number">10</span>
+                        <h3>Residuos no reciclables</h3>
+                    </div>
+                    <div class="options-grid">
+                        <label class="option-card correct">
+                            <input type="radio" name="p10" value="a">
+                            <div class="option-content">
+                                <span class="option-icon">⚫</span>
+                                <span class="option-text">Gris</span>
+                            </div>
+                        </label>
+                        <label class="option-card wrong">
+                            <input type="radio" name="p10" value="b">
+                            <div class="option-content">
+                                <span class="option-icon">🟢</span>
+                                <span class="option-text">Verde</span>
+                            </div>
+                        </label>
+                        <label class="option-card wrong">
+                            <input type="radio" name="p10" value="c">
+                            <div class="option-content">
+                                <span class="option-icon">🟡</span>
+                                <span class="option-text">Amarillo</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+    
+                <div class="navegacion">
+                    <button type="button" id="anterior" class="game-button secondary">
+                        <span>← Anterior</span>
+                    </button>
+                    <button type="button" id="siguiente" class="game-button">
+                        <span>Siguiente →</span>
+                    </button>
+                </div>
+            </form>
+            
+            <div id="resultado" class="hidden">
+                <div class="result-card">
+                    <div class="trophy">🏆</div>
+                    <h3>Puntuación Final</h3>
+                    <div class="score-display">
+                        <span id="puntuacion">0</span>/10
+                    </div>
+                    <div class="result-details" id="detalle-respuestas"></div>
+                </div>
+            </div>
+        </div>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+    const questions = document.querySelectorAll('.pregunta');
+    const btnAnterior = document.getElementById('anterior');
+    const btnSiguiente = document.getElementById('siguiente');
+    const currentQuestionSpan = document.getElementById('current-question');
+    const progressBar = document.querySelector('.progress-bar');
+    const resultado = document.getElementById('resultado');
+    const puntuacionSpan = document.getElementById('puntuacion');
+    const detalleRespuestas = document.getElementById('detalle-respuestas');
+    
+    let currentQuestion = 0;
+    let respuestas = [];
+
+    // Mostrar primera pregunta
+    showQuestion(currentQuestion);
+
+    // Navegación
+    btnSiguiente.addEventListener('click', function() {
+        if (validateQuestion(currentQuestion)) {
+            saveAnswer(currentQuestion);
+            
+            if (currentQuestion < questions.length - 1) {
+                currentQuestion++;
+                showQuestion(currentQuestion);
+                updateProgress();
+            } else {
+                showResults();
+            }
+        }
+    });
+
+    btnAnterior.addEventListener('click', function() {
+        if (currentQuestion > 0) {
+            currentQuestion--;
+            showQuestion(currentQuestion);
+            updateProgress();
+        }
+    });
+
+    function showQuestion(index) {
+        questions.forEach((question, i) => {
+            question.classList.toggle('active', i === index);
+        });
+        currentQuestionSpan.textContent = index + 1;
+        btnAnterior.style.visibility = index === 0 ? 'hidden' : 'visible';
+    }
+
+    function saveAnswer(index) {
+        const question = questions[index];
+        const selected = question.querySelector('input:checked');
+        respuestas[index] = selected ? selected.value : null;
+    }
+
+    function validateQuestion(index) {
+        const question = questions[index];
+        const selected = question.querySelector('input:checked');
+        
+        if (!selected) {
+            question.classList.add('invalid');
+            setTimeout(() => question.classList.remove('invalid'), 1000);
+            return false;
+        }
+        return true;
+    }
+
+    function updateProgress() {
+        const progress = ((currentQuestion + 1) / questions.length) * 100;
+        progressBar.style.width = `${progress}%`;
+    }
+
+    function showResults() {
+        document.getElementById('cuestionario').classList.add('hidden');
+        resultado.classList.remove('hidden');
+        
+        // Calcular puntuación
+        const correctAnswers = respuestas.filter((resp, i) => {
+            const correctOption = questions[i].querySelector('.correct input');
+            return resp === correctOption.value;
+        }).length;
+
+        // Mostrar resultados
+        puntuacionSpan.textContent = correctAnswers;
+        detalleRespuestas.innerHTML = questions.map((question, i) => {
+            const correctOption = question.querySelector('.correct .option-text').textContent;
+            const userAnswer = question.querySelector('input:checked') ? 
+                question.querySelector('input:checked').parentNode.querySelector('.option-text').textContent : 
+                'Sin responder';
+            
+            return `
+                <div class="respuesta ${respuestas[i] === correctOption ? 'correcta' : 'incorrecta'}">
+                    <strong>Pregunta ${i + 1}:</strong><br>
+                    Tu respuesta: ${userAnswer}<br>
+                    Correcta: ${correctOption}
+                </div>
+            `;
+        }).join('');
+    }
+
+    // Validar selección única
+    document.querySelectorAll('input[type="radio"]').forEach(radio => {
+        radio.addEventListener('change', function() {
+            this.closest('.options-grid').querySelectorAll('.option-card')
+                .forEach(card => card.classList.remove('selected'));
+            this.closest('.option-card').classList.add('selected');
+        });
+    });
+});
+        </script>
+    </section>
+
+    <section id="sopa-de-letras">
+        <h2>Sopa de Letras - Reciclaje</h2>
+        <div id="instrucciones">
+            <p>Encuentra las 15 palabras relacionadas con el reciclaje. Haz clic y arrastra para seleccionar las letras.</p>
+        </div>
+        <div id="cronometro">Tiempo: 00:00</div>
+        <div id="sopa-container"></div>
+        <div id="palabras">
+            <h3>Palabras a buscar:</h3>
+            <ul id="lista-palabras"></ul>
+        </div>
+        <button id="reiniciar-sopa">
+            <span class="reset-icon"></span>
+            Nuevo Juego
+        </button>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const palabras = [
+                "RECICLAJE", "PLASTICO", "VIDRIO", "PAPEL", "ORGÁNICO", "CONTAMINACIÓN",
+                "BASURA", "COMPOSTA", "MEDIOAMBIENTE", "RESIDUOS", "RECICLABLE", "REUTILIZAR",
+                "REDUCIR", "ECOLOGICO", "CONCIENCIA"
+            ];
+
+            // Elementos del DOM
+            const elementos = {
+                sopaContainer: document.getElementById('sopa-container'),
+                listaPalabras: document.getElementById('lista-palabras'),
+                reiniciarBtn: document.getElementById('reiniciar-sopa'),
+                cronometro: document.getElementById('cronometro')
+            };
+
+            // Variables de estado
+            let estado = {
+                sopa: [],
+                tamaño: 15,
+                seleccionadas: [],
+                palabrasEncontradas: new Set(),
+                tiempoInicio: null,
+                intervalo: null,
+                colores: {},
+                posicionesPalabras: []
+            };
+
+            // Funciones principales
+            function inicializarJuego() {
+                crearSopa();
+                mostrarPalabras();
+                asignarColores();
+                elementos.reiniciarBtn.addEventListener('click', reiniciarJuego);
+            }
+
+            function crearSopa() {
+                estado.sopa = Array.from({ length: estado.tamaño }, () => Array(estado.tamaño).fill(''));
+                estado.posicionesPalabras = [];
+                
+                palabras.forEach(palabra => {
+                    insertarPalabra(palabra);
+                });
+                
+                rellenarEspaciosVacios();
+                renderizarSopa();
+            }
+
+            function insertarPalabra(palabra) {
+                let direccion = Math.random() < 0.5 ? 'horizontal' : 'vertical';
+                let fila = Math.floor(Math.random() * estado.tamaño);
+                let columna = Math.floor(Math.random() * estado.tamaño);
+
+                if (direccion === 'horizontal' && columna + palabra.length <= estado.tamaño) {
+                    if (verificarEspacio(fila, columna, palabra.length, direccion)) {
+                        for (let i = 0; i < palabra.length; i++) {
+                            estado.sopa[fila][columna + i] = palabra[i];
+                        }
+                        estado.posicionesPalabras.push({ palabra, fila, columna, direccion });
+                        return;
+                    }
+                } else if (direccion === 'vertical' && fila + palabra.length <= estado.tamaño) {
+                    if (verificarEspacio(fila, columna, palabra.length, direccion)) {
+                        for (let i = 0; i < palabra.length; i++) {
+                            estado.sopa[fila + i][columna] = palabra[i];
+                        }
+                        estado.posicionesPalabras.push({ palabra, fila, columna, direccion });
+                        return;
+                    }
+                }
+                insertarPalabra(palabra);
+            }
+
+            function verificarEspacio(fila, col, largo, dir) {
+                for (let i = 0; i < largo; i++) {
+                    if (dir === 'horizontal' && estado.sopa[fila][col + i] !== '') return false;
+                    if (dir === 'vertical' && estado.sopa[fila + i][col] !== '') return false;
+                }
+                return true;
+            }
+
+            function rellenarEspaciosVacios() {
+                const letras = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+                for (let i = 0; i < estado.tamaño; i++) {
+                    for (let j = 0; j < estado.tamaño; j++) {
+                        if (estado.sopa[i][j] === '') {
+                            estado.sopa[i][j] = letras[Math.floor(Math.random() * letras.length)];
+                        }
+                    }
+                }
+            }
+
+            function renderizarSopa() {
+                elementos.sopaContainer.innerHTML = '';
+                estado.sopa.forEach((fila, i) => {
+                    fila.forEach((letra, j) => {
+                        const celda = document.createElement('div');
+                        celda.textContent = letra;
+                        celda.dataset.fila = i;
+                        celda.dataset.columna = j;
+                        celda.addEventListener('click', () => manejarSeleccion(celda));
+                        elementos.sopaContainer.appendChild(celda);
+                    });
+                });
+            }
+
+            function manejarSeleccion(celda) {
+                if (!estado.tiempoInicio) iniciarCronometro();
+                
+                celda.classList.toggle('seleccionado');
+                const posicion = {
+                    fila: parseInt(celda.dataset.fila),
+                    columna: parseInt(celda.dataset.columna)
+                };
+
+                const index = estado.seleccionadas.findIndex(p => 
+                    p.fila === posicion.fila && p.columna === posicion.columna
+                );
+
+                if (index === -1) {
+                    estado.seleccionadas.push({ ...posicion, celda });
+                } else {
+                    estado.seleccionadas.splice(index, 1);
+                }
+
+                verificarPalabra();
+            }
+
+            function verificarPalabra() {
+                if (estado.seleccionadas.length < 2) return;
+
+                const palabra = estado.seleccionadas
+                    .sort((a, b) => a.fila - b.fila || a.columna - b.columna)
+                    .map(c => c.celda.textContent)
+                    .join('');
+
+                if (palabras.includes(palabra) && !estado.palabrasEncontradas.has(palabra)) {
+                    estado.palabrasEncontradas.add(palabra);
+                    actualizarInterfaz(palabra);
+                }
+            }
+
+            function actualizarInterfaz(palabra) {
+                // Actualizar lista
+                document.querySelectorAll('#lista-palabras li').forEach(li => {
+                    if (li.textContent === palabra) {
+                        li.style.color = estado.colores[palabra];
+                        li.style.textDecoration = 'line-through';
+                    }
+                });
+
+                // Colorear celdas
+                const posicion = estado.posicionesPalabras.find(p => p.palabra === palabra);
+                if (posicion) {
+                    for (let i = 0; i < palabra.length; i++) {
+                        let celda;
+                        if (posicion.direccion === 'horizontal') {
+                            celda = elementos.sopaContainer.querySelector(
+                                `div[data-fila="${posicion.fila}"][data-columna="${posicion.columna + i}"]`
+                            );
+                        } else {
+                            celda = elementos.sopaContainer.querySelector(
+                                `div[data-fila="${posicion.fila + i}"][data-columna="${posicion.columna}"]`
+                            );
+                        }
+                        if (celda) {
+                            celda.style.backgroundColor = estado.colores[palabra];
+                            celda.classList.remove('seleccionado');
+                        }
+                    }
+                }
+                estado.seleccionadas = [];
+            }
+
+            function reiniciarJuego() {
+                estado.seleccionadas = [];
+                estado.palabrasEncontradas.clear();
+                estado.tiempoInicio = null;
+                elementos.cronometro.textContent = "Tiempo: 00:00";
+                clearInterval(estado.intervalo);
+                crearSopa();
+                asignarColores();
+            }
+
+            function iniciarCronometro() {
+                estado.tiempoInicio = Date.now();
+                estado.intervalo = setInterval(() => {
+                    const tiempo = Math.floor((Date.now() - estado.tiempoInicio) / 1000);
+                    elementos.cronometro.textContent = `Tiempo: ${Math.floor(tiempo / 60).toString().padStart(2, '0')}:${(tiempo % 60).toString().padStart(2, '0')}`;
+                }, 1000);
+            }
+
+            function mostrarPalabras() {
+                elementos.listaPalabras.innerHTML = palabras
+                    .map(palabra => `<li>${palabra}</li>`)
+                    .join('');
+            }
+
+            function asignarColores() {
+                estado.colores = {};
+                palabras.forEach(palabra => {
+                    estado.colores[palabra] = `hsl(${Math.random() * 360}, 70%, 60%)`;
+                });
+            }
+
+            // Inicializar juego
+            inicializarJuego();
+        });
+    </script>
+
+ <section id="interactivo">
+    <div id="juego-parejas">
+        <h2>♻️ Eco Match Challenge! ♻️</h2>
+        <div id="instrucciones">
+            <p>¡Encuentra las parejas correctas y ayuda a reciclar! Tienes 3 errores permitidos.</p>
+        </div>
+        <div id="tablero"></div>
+        <div id="puntaje">
+            <p>🏆 Puntos: <span id="puntos">0</span></p>
+            <p>💔 Errores: <span id="errores">0</span>/3</p>
+        </div>
+        <button id="reiniciar-juego">Jugar de Nuevo</button>
+    </div>
+</section>
+
+<script>
+    // JavaScript completo
+    document.addEventListener('DOMContentLoaded', function() {
+        const tablero = document.getElementById('tablero');
+        const reiniciarBtn = document.getElementById('reiniciar-juego');
+        const puntosSpan = document.getElementById('puntos');
+        const erroresSpan = document.getElementById('errores');
+
+        let puntos = 0;
+        let errores = 0;
+        const maxErrores = 3;
+
+        const parejas = [
+            { imagen: "imagenes/papel-100.jpg", descripcion: "Papel" },
+            { imagen: "imagenes/vidrio-100.jpg", descripcion: "Vidrio" },
+            { imagen: "imagenes/plastico-100.jpg", descripcion: "Plástico" },
+            { imagen: "imagenes/organico-100.jpg", descripcion: "Orgánicos" },
+            { imagen: "imagenes/metal-100.jpg", descripcion: "Metales" },
+            { imagen: "imagenes/electrico-100.jpg", descripcion: "Eléctricos" }
+        ];
+
+        let tarjetas = [...parejas, ...parejas];
+        let tarjetasVolteadas = [];
+        let bloqueado = false;
+
+        function mezclarTarjetas() {
+            tarjetas = tarjetas.sort(() => Math.random() - 0.5);
+        }
+
+        function crearTablero() {
+            tablero.innerHTML = '';
+            tarjetas.forEach((tarjeta, index) => {
+                const div = document.createElement('div');
+                div.className = 'tarjeta';
+                div.dataset.indice = index;
+                div.innerHTML = `
+                    <div class="cara frontal"></div>
+                    <div class="cara trasera">
+                        <div class="imagen-container">
+                            ${tarjeta.imagen ? `<img src="${tarjeta.imagen}" alt="${tarjeta.descripcion}">` : ''}
+                        </div>
+                        <p>${tarjeta.descripcion}</p>
+                    </div>
+                `;
+                div.addEventListener('click', voltearTarjeta);
+                tablero.appendChild(div);
+            });
+        }
+
+        function voltearTarjeta() {
+            if (bloqueado || errores >= maxErrores) return;
+            if (this.classList.contains('volteada') || tarjetasVolteadas.includes(this)) return;
+
+            this.classList.add('volteada');
+            tarjetasVolteadas.push(this);
+
+            if (tarjetasVolteadas.length === 2) {
+                bloquearTablero();
+                verificarPareja();
+            }
+        }
+
+        function bloquearTablero() {
+            bloqueado = true;
+            setTimeout(() => {
+                bloqueado = false;
+            }, 1000);
+        }
+
+        function verificarPareja() {
+            const [tarjeta1, tarjeta2] = tarjetasVolteadas;
+            const indice1 = tarjeta1.dataset.indice;
+            const indice2 = tarjeta2.dataset.indice;
+
+            if (tarjetas[indice1].descripcion === tarjetas[indice2].descripcion) {
+                puntos += 10;
+                puntosSpan.textContent = puntos;
+                
+                tarjeta1.classList.add('match');
+                tarjeta2.classList.add('match');
+                
+                setTimeout(() => {
+                    tarjeta1.style.visibility = 'hidden';
+                    tarjeta2.style.visibility = 'hidden';
+                    tarjeta1.removeEventListener('click', voltearTarjeta);
+                    tarjeta2.removeEventListener('click', voltearTarjeta);
+                }, 600);
+            } else {
+                errores += 1;
+                erroresSpan.textContent = `${errores}/${maxErrores}`;
+                
+                tarjeta1.classList.add('error');
+                tarjeta2.classList.add('error');
+                
+                setTimeout(() => {
+                    tarjeta1.classList.remove('volteada', 'error');
+                    tarjeta2.classList.remove('volteada', 'error');
+                }, 1000);
+                
+                if (errores >= maxErrores) {
+                    setTimeout(() => alert('¡Oh no! Has alcanzado el máximo de errores. ¡Inténtalo de nuevo!'), 500);
+                }
+            }
+
+            tarjetasVolteadas = [];
+        }
+
+        reiniciarBtn.addEventListener('click', function() {
+            puntos = 0;
+            errores = 0;
+            puntosSpan.textContent = puntos;
+            erroresSpan.textContent = `${errores}/${maxErrores}`;
+            mezclarTarjetas();
+            crearTablero();
+            tablero.querySelectorAll('.tarjeta').forEach(tarjeta => {
+                tarjeta.style.visibility = 'visible';
+                tarjeta.classList.remove('match', 'error', 'volteada');
+            });
+        });
+
+        mezclarTarjetas();
+        crearTablero();
+    });
+</script>
+
+<section id="colorear-mascota">
+    <h2 class="section-title">🎨 Colorea a tu Mascota</h2>
+    <div class="coloring-container">
+        <div class="reference-container">
+            <div class="reference-label">Modelo</div>
+            <img src="imagenes/mascota.jpg" alt="Referencia" class="reference-image">
+        </div>
+        
+        <div class="canvas-wrapper">
+            <canvas id="mascotaCanvas" width="500" height="500"></canvas>
+        </div>
+    </div>
+
+    <div class="color-palette-container">
+        <h3 class="palette-title">Paleta de Colores</h3>
+        <div class="color-palette">
+            <div class="color" style="background-color: #d8a063"></div>
+            <div class="color" style="background-color: #f4d591"></div>
+            <div class="color" style="background-color: #76ba56"></div>
+            <div class="color" style="background-color: #2b8f37"></div>
+            <div class="color" style="background-color: #805b54"></div>
+            <div class="color" style="background-color: #6d4640"></div>
+        </div>
+    </div>
+
+    <button id="resetButton" class="styled-button">
+        <span class="button-icon">🔄</span>
+        Reiniciar Dibujo
+    </button>
+</section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const canvas = document.getElementById('mascotaCanvas');
+        const ctx = canvas.getContext('2d');
+        const colors = document.querySelectorAll('.color');
+        const resetBtn = document.getElementById('resetButton');
+        
+        let isDrawing = false;
+        let selectedColor = '#000000';
+        let img = new Image();
+        let initialImageData = null;
+        
+        // Variables de posición de la imagen
+        let imgX = 0;
+        let imgY = 0;
+        let imgWidth = 0;
+        let imgHeight = 0;
+
+        function initializeCanvas() {
+            const container = canvas.parentElement;
+            const containerWidth = container.clientWidth;
+            const containerHeight = container.clientHeight;
+            
+            // Configurar dimensiones del canvas
+            canvas.width = containerWidth;
+            canvas.height = containerHeight;
+            
+            // Calcular relación de aspecto
+            const imgAspect = img.naturalWidth / img.naturalHeight;
+            const containerAspect = containerWidth / containerHeight;
+
+            if (containerAspect > imgAspect) {
+                // Contenedor más ancho que la imagen
+                imgHeight = containerHeight;
+                imgWidth = imgHeight * imgAspect;
+                imgX = (containerWidth - imgWidth) / 2;
+                imgY = 0;
+            } else {
+                // Contenedor más alto que la imagen
+                imgWidth = containerWidth;
+                imgHeight = imgWidth / imgAspect;
+                imgX = 0;
+                imgY = (containerHeight - imgHeight) / 2;
+            }
+
+            // Dibujar imagen centrada
+            ctx.drawImage(img, imgX, imgY, imgWidth, imgHeight);
+            
+            // Guardar estado inicial
+            if (!initialImageData) {
+                initialImageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+            }
+        }
+
+        function getCanvasPosition(event) {
+            const rect = canvas.getBoundingClientRect();
+            const clientX = event.clientX || (event.touches[0] ? event.touches[0].clientX : 0);
+            const clientY = event.clientY || (event.touches[0] ? event.touches[0].clientY : 0);
+            
+            return {
+                x: clientX - rect.left,
+                y: clientY - rect.top
+            };
+        }
+
+        function isInsideImage(x, y) {
+            return x >= imgX && x <= imgX + imgWidth && 
+                   y >= imgY && y <= imgY + imgHeight;
+        }
+
+        function startDrawing(e) {
+            const pos = getCanvasPosition(e);
+            if (!isInsideImage(pos.x, pos.y)) return;
+            
+            isDrawing = true;
+            ctx.beginPath();
+            ctx.moveTo(pos.x, pos.y);
+            e.preventDefault();
+        }
+
+        function draw(e) {
+            if (!isDrawing) return;
+            const pos = getCanvasPosition(e);
+            if (!isInsideImage(pos.x, pos.y)) return;
+            
+            ctx.lineTo(pos.x, pos.y);
+            ctx.strokeStyle = selectedColor;
+            ctx.lineWidth = 8;
+            ctx.lineCap = 'round';
+            ctx.stroke();
+            ctx.beginPath();
+            ctx.moveTo(pos.x, pos.y);
+            e.preventDefault();
+        }
+
+        function stopDrawing() {
+            isDrawing = false;
+            ctx.beginPath();
+        }
+
+        // Event listeners
+        canvas.addEventListener('mousedown', startDrawing);
+        canvas.addEventListener('mousemove', draw);
+        canvas.addEventListener('mouseup', stopDrawing);
+        canvas.addEventListener('mouseleave', stopDrawing);
+        canvas.addEventListener('touchstart', startDrawing);
+        canvas.addEventListener('touchmove', draw);
+        canvas.addEventListener('touchend', stopDrawing);
+
+        // Selección de colores
+        colors.forEach(color => {
+            color.addEventListener('click', () => {
+                selectedColor = color.style.backgroundColor;
+                colors.forEach(c => c.classList.remove('active'));
+                color.classList.add('active');
+                
+                // Animación de selección
+                color.animate([
+                    { transform: 'scale(1)' },
+                    { transform: 'scale(1.2)' },
+                    { transform: 'scale(1.1)' }
+                ], { duration: 200 });
+            });
+        });
+
+        // Botón de reinicio
+        resetBtn.addEventListener('click', () => {
+            ctx.putImageData(initialImageData, 0, 0);
+        });
+
+        // Cargar imagen
+        img.onload = function() {
+            initializeCanvas();
+            window.addEventListener('resize', initializeCanvas);
+        };
+        img.src = 'imagenes/mascota colorear.svg';
+    });
+</script>
+
+<section id="hero-puzzle">
+    <div class="container">
+        <div class="puzzle-guide">
+            <div class="guide-image">
+                <h3 class="puzzle-title">¡Armemos a los Guardianes Ecológicos! 🌱</h3>
+                <img src="imagenes/imagen para rompecabezas.svg" 
+                     alt="Guardianes Ecológicos" 
+                     class="heroes-preview">
+                <a href="https://puzzel.org/es/jigsaw/play?p=-OO8tP1dNtvmEEdGCESS" 
+                   class="puzzle-action" 
+                   target="_blank">
+                   🍃 ¡Comenzar Aventura! 🍃
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+</main>
+
+<footer>
+    <div class="social-media">
+        <a href="https://www.facebook.com/share/1GmM4wn7yf/" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.instagram.com/guardianesverdes_7/" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.tiktok.com/@guardianesverdes1?_t=ZS-8ueEfgTIrSu&_r=1" target="_blank"><i class="fab fa-tiktok"></i></a>
+        <a href="https://www.youtube.com/@Guardianes_Verdes" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://x.com/GuardianesVer_" target="_blank"><i class="fab fa-twitter"></i></a>
+    </div>
+</footer>
+
+<script>
+
+    // Animación al hacer scroll
+    const teamMembers = document.querySelectorAll('.team-member');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    teamMembers.forEach(member => {
+        observer.observe(member);
+    });
+
+    // Cambio de header al hacer scroll
+    window.addEventListener('scroll', () => {
+        const header = document.querySelector('header');
+        if (window.scrollY > 50) {
+            header.style.background = 'rgba(28, 60, 29, 0.95)';
+        } else {
+            header.style.background = 'rgba(28, 60, 29, 0.9)';
+        }
+    });
+
+    // Animación del menú hamburguesa
+    document.getElementById('menu-toggle').addEventListener('change', function() {
+        const menuIcon = document.querySelector('.menu-icon');
+        if (this.checked) {
+            menuIcon.classList.add('active');
+        } else {
+            menuIcon.classList.remove('active');
+        }
+    });
+
+    // Cerrar menú al hacer click en un enlace (mobile)
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            document.getElementById('menu-toggle').checked = false;
+        });
+    });
+
+    
+</script>
+</body>
+</html>

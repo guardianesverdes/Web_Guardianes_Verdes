@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio - Guardianes Verdes</title>
+    <link href="funtes/gill-sans-2/Gill Sans Heavy Italic.otf" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+</head>
+<body>
+    <header class="scrolling-header">
+        <div class="header-content">
+            <div class="logo">
+                <img src="imagenes/logo horizontal.png" alt="Logo Guardianes Verdes">
+            </div>
+            <!-- Botón hamburguesa -->
+        <button class="menu-toggle">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        
+        <!-- Menú de navegación -->
+        <nav class="nav-links">
+            <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="proyecto.html">Proyecto</a></li>
+                    <li><a href="mascota.html">Mascota</a></li>
+                    <li><a href="galeria.html">Galería</a></li>
+                    <li><a href="interactivo.html">Interactivo</a></li>
+                    <li><a href="videojuego.html">Videojuego</a></li>
+                </ul>
+            </nav>
+        </div>
+        <script>
+            // Toggle del menú
+document.querySelector('.menu-toggle').addEventListener('click', function() {
+    this.classList.toggle('active');
+    document.querySelector('.nav-links').classList.toggle('active');
+});
+
+// Cerrar menú al hacer click en enlace
+document.querySelectorAll('.nav-links ul li a').forEach(link => {
+    link.addEventListener('click', () => {
+        document.querySelector('.menu-toggle').classList.remove('active');
+        document.querySelector('.nav-links').classList.remove('active');
+    });
+});
+
+// Cerrar menú al hacer click fuera
+document.addEventListener('click', (e) => {
+    if (!e.target.closest('.nav-links') && !e.target.closest('.menu-toggle')) {
+        document.querySelector('.menu-toggle').classList.remove('active');
+        document.querySelector('.nav-links').classList.remove('active');
+    }
+});
+        </script>
+    </header>
+
+    <main>
+        <section id="bienvenidos">
+            <h1>BIENVENIDOS A GUARDIANES VERDES</h1>
+            <div class="video-encuadrado">
+                <video autoplay muted loop playsinline>
+                    <source src="videos/El juego del reciclaje.mp4" type="video/mp4">
+                </video>
+            </div>
+        </section>
+
+        <section id="equipo">
+            <h2 style="text-align: center; margin: 100px 0; font-size: 2.5rem;">CONOCE A LOS MIEMBROS DE ESTA AVENTURA</h2>
+            
+            <!-- Daniel Gamba -->
+            <div class="miembro-container">
+                <div class="miembro-imagen">
+                    <img src="imagenes/personaje gamba.svg" alt="Daniel Gamba">
+                </div>
+                <div class="miembro-info">
+                    <h3>DANIEL LEONARDO GAMBA MARTINEZ</h3>
+                    <p class="rol">Marketing Digital</p>
+                    <p class="descripcion">Estratega creativo en comunicación y difusión, especializado en desarrollar campañas impactantes que conectan con nuestra audiencia y promueven la conciencia ambiental.</p>
+                    <a href="https://cokavt.github.io/Portafolio-AC/" class="portafolio-link">Portafolio Creativo</a>
+                </div>
+            </div>
+        
+            <!-- Juan Sebastián -->
+            <div class="miembro-container">
+                <div class="miembro-imagen">
+                    <img src="imagenes/persoanje sebastian.svg" alt="Juan Sebastián">
+                </div>
+                <div class="miembro-info">
+                    <h3>JUAN SEBASTIAN DÍAZ SANABRIA</h3>
+                    <p class="rol">Animador</p>
+                    <p class="descripcion">Artista multimedia que da vida a nuestros personajes y escenarios mediante animaciones fluidas y expresivas, creando experiencias visuales memorables.</p>
+                    <a href="https://disan99.github.io/potav3/" class="portafolio-link">Galeria Animada</a>
+                </div>
+            </div>
+        
+            <!-- Jonatan Gómez -->
+            <div class="miembro-container">
+                <div class="miembro-imagen">
+                    <img src="imagenes/personaje jonatan.svg" alt="Jonatan Gómez">
+                </div>
+                <div class="miembro-info">
+                    <h3>JONATAN DAVID GÓMEZ GOYENECHE</h3>
+                    <p class="rol">Programador</p>
+                    <p class="descripcion">Desarrolla y mantiene la infraestructura digital del proyecto, implementando herramientas interactivas que facilitan la participación y el acceso a contenidos educativos.</p>
+                    <a href="https://goye1410.github.io/Portafolio-Jonatan-Gomez/" class="portafolio-link">Proyectos Técnicos</a>
+                </div>
+            </div>
+        
+            <!-- Karen Pulido -->
+            <div class="miembro-container">
+                <div class="miembro-imagen">
+                    <img src="imagenes/nubia (1).svg" alt="Karen Pulido">
+                </div>
+                <div class="miembro-info">
+                    <h3>KAREN LORENA PULIDO DÍAZ</h3>
+                    <p class="rol">Diseñadora Web</p>
+                    <p class="descripcion">Creadora de experiencias intuitivas y visualmente impactantes, combinando estética y funcionalidad para una navegación perfecta.</p>
+                    <a href="https://lorenpulido.github.io/portafolio-web/" class="portafolio-link">Diseños Interactivos</a>
+                </div>
+            </div>
+        
+            <!-- Christopher Díaz -->
+            <div class="miembro-container">
+                <div class="miembro-imagen">
+                    <img src="imagenes/personaje christopher.svg" alt="Christopher Díaz">
+                </div>
+                <div class="miembro-info">
+                    <h3>JEAN CHRISTOPHER DÍAZ MENDES</h3>
+                    <p class="rol">Editor Multimedia</p>
+                    <p class="descripcion">Maestro del ritmo visual, encargado de pulir y perfeccionar nuestro contenido audiovisual para máxima coherencia e impacto emocional.</p>
+                    <a href="#" class="portafolio-link">Ediciones Destacadas</a>
+                </div>
+            </div>
+        
+            <!-- Juan David -->
+            <div class="miembro-container">
+                <div class="miembro-imagen">
+                    <img src="imagenes/personaje juandavid.svg" alt="Juan David">
+                </div>
+                <div class="miembro-info">
+                    <h3>JUAN DAVID RODRÍGUEZ SALINAS</h3>
+                    <p class="rol">Narrador Creativo</p>
+                    <p class="descripcion">Elabora el contenido narrativo y colabora en la captura de imágenes y videos, comunicando de manera efectiva el mensaje ambiental y educativo de la iniciativa.</p>
+                    <a href="https://08david26.github.io/portafolioWeb/" class="portafolio-link">Escritos Creativos</a>
+                </div>
+            </div>
+        
+            <!-- Daniel Pérez -->
+            <div class="miembro-container">
+                <div class="miembro-imagen">
+                    <img src="imagenes/personaje-camilo.svg" alt="Daniel Pérez">
+                </div>
+                <div class="miembro-info">
+                    <h3>DANIEL CAMILO PÉREZ CACERES</h3>
+                    <p class="rol">Director General</p>
+                    <p class="descripcion">Supervisa y coordina todas las fases del proyecto, asegurando que cada etapa se ejecute con excelencia y en sintonía con los objetivos de transformación educativa y ambiental.</p>
+                    <a href="https://kmilo-22.github.io/Portafolio-Web-/index.html" class="portafolio-link">Liderazgo Creativo</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="carousel-section">
+            <div class="team-carousel">
+                <div class="carousel-heading">
+                    <h2>El Equipo Creativo</h2>
+                    <p>Los mentes detrás de la innovación</p>
+                </div>
+                
+                <div class="carousel-container">
+                    <!-- Daniel Gamba -->
+                    <div class="team-member">
+                        <div class="member-image">
+                            <img src="imagenes/gamba.jpg" alt="Daniel Gamba">
+                        </div>
+                        <div class="member-info">
+                            <h3>Daniel Gamba</h3>
+                            <p>Marketing Digital</p>
+                        </div>
+                    </div>
+        
+                    <!-- Juan Sebastián -->
+                    <div class="team-member">
+                        <div class="member-image">
+                            <img src="imagenes/sebastian.jpg" alt="Juan Sebastián">
+                        </div>
+                        <div class="member-info">
+                            <h3>Juan Sebastián</h3>
+                            <p>Animador</p>
+                        </div>
+                    </div>
+        
+                    <!-- Jonatan Gómez -->
+                    <div class="team-member">
+                        <div class="member-image">
+                            <img src="imagenes/jonatan.jpg" alt="Jonatan Gómez">
+                        </div>
+                        <div class="member-info">
+                            <h3>Jonatan Gómez</h3>
+                            <p>Programador</p>
+                        </div>
+                    </div>
+        
+                    <!-- Karen Pulido -->
+                    <div class="team-member">
+                        <div class="member-image">
+                            <img src="imagenes/lorena.jpg" alt="Karen Pulido">
+                        </div>
+                        <div class="member-info">
+                            <h3>Karen Pulido</h3>
+                            <p>Diseñadora Web</p>
+                        </div>
+                    </div>
+        
+                    <!-- Christopher Díaz -->
+                    <div class="team-member">
+                        <div class="member-image">
+                            <img src="imagenes/christopher.jpg" alt="Christopher Díaz">
+                        </div>
+                        <div class="member-info">
+                            <h3>Christopher Díaz</h3>
+                            <p>Editor Multimedia</p>
+                        </div>
+                    </div>
+        
+                    <!-- Juan David -->
+                    <div class="team-member">
+                        <div class="member-image">
+                            <img src="imagenes/juandavid.jpg" alt="Juan David">
+                        </div>
+                        <div class="member-info">
+                            <h3>Juan David</h3>
+                            <p>Narrador Creativo</p>
+                        </div>
+                    </div>
+        
+                    <!-- Daniel Pérez -->
+                    <div class="team-member">
+                        <div class="member-image">
+                            <img src="imagenes/camilo.jpg" alt="Daniel Pérez">
+                        </div>
+                        <div class="member-info">
+                            <h3>Daniel Pérez</h3>
+                            <p>Director General</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Puntos de navegación (7 puntos) -->
+                <div class="carousel-dots">
+                    <span class="carousel-dot active"></span>
+                    <span class="carousel-dot"></span>
+                    <span class="carousel-dot"></span>
+                    <span class="carousel-dot"></span>
+                    <span class="carousel-dot"></span>
+                    <span class="carousel-dot"></span>
+                    <span class="carousel-dot"></span>
+                </div>
+            </div>
+
+            <script>
+                document.addEventListener('DOMContentLoaded', () => {
+                    const carousel = document.querySelector('.carousel-container');
+                    const dots = document.querySelectorAll('.carousel-dot');
+                    let isDragging = false;
+                    let startX;
+                    let scrollLeft;
+                
+                    // Navigation dots
+                    dots.forEach((dot, index) => {
+                        dot.addEventListener('click', () => {
+                            const scrollAmount = carousel.children[0].offsetWidth * index;
+                            carousel.scrollTo({
+                                left: scrollAmount,
+                                behavior: 'smooth'
+                            });
+                            updateDots(index);
+                        });
+                    });
+                
+                    // Drag functionality
+                    carousel.addEventListener('mousedown', (e) => {
+                        isDragging = true;
+                        startX = e.pageX - carousel.offsetLeft;
+                        scrollLeft = carousel.scrollLeft;
+                    });
+                
+                    carousel.addEventListener('mouseup', () => {
+                        isDragging = false;
+                    });
+                
+                    carousel.addEventListener('mousemove', (e) => {
+                        if (!isDragging) return;
+                        e.preventDefault();
+                        const x = e.pageX - carousel.offsetLeft;
+                        const walk = (x - startX) * 2;
+                        carousel.scrollLeft = scrollLeft - walk;
+                    });
+                
+                    // Auto-update dots
+                    carousel.addEventListener('scroll', () => {
+                        const activeIndex = Math.round(carousel.scrollLeft / carousel.children[0].offsetWidth);
+                        updateDots(activeIndex);
+                    });
+                
+                    function updateDots(activeIndex) {
+                        dots.forEach(dot => dot.classList.remove('active'));
+                        dots[activeIndex].classList.add('active');
+                    }
+                
+                    // Auto-advance
+                    setInterval(() => {
+                        const nextIndex = (Array.from(dots).findIndex(dot => dot.classList.contains('active')) + 1) % dots.length;
+                        dots[nextIndex].click();
+                    }, 5000);
+                });
+                </script>
+
+        </section>
+
+               
+
+    <footer>
+        <div class="social-media">
+            <a href="https://www.facebook.com/share/1GmM4wn7yf/" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com/guardianesverdes_7/" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.tiktok.com/@guardianesverdes1?_t=ZS-8ueEfgTIrSu&_r=1" target="_blank"><i class="fab fa-tiktok"></i></a>
+            <a href="https://www.youtube.com/@Guardianes_Verdes" target="_blank"><i class="fab fa-youtube"></i></a>
+            <a href="https://x.com/GuardianesVer_" target="_blank"><i class="fab fa-twitter"></i></a>
+        </div>
+    </footer>
+
+    <script>
+
+        // Animación al hacer scroll
+        const teamMembers = document.querySelectorAll('.team-member');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        teamMembers.forEach(member => {
+            observer.observe(member);
+        });
+
+        // Cambio de header al hacer scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.background = 'rgba(28, 60, 29, 0.95)';
+            } else {
+                header.style.background = 'rgba(28, 60, 29, 0.9)';
+            }
+        });
+
+        // Animación del menú hamburguesa
+        document.getElementById('menu-toggle').addEventListener('change', function() {
+            const menuIcon = document.querySelector('.menu-icon');
+            if (this.checked) {
+                menuIcon.classList.add('active');
+            } else {
+                menuIcon.classList.remove('active');
+            }
+        });
+
+        // Cerrar menú al hacer click en un enlace (mobile)
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('menu-toggle').checked = false;
+            });
+        });
+
+        
+    </script>
+</body>
+</html>

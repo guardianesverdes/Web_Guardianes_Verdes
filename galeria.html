@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería - Guardianes Verdes</title>
+    <link href="funtes/gill-sans-2/Gill Sans Heavy Italic.otf" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header class="scrolling-header">
+        <div class="header-content">
+            <div class="logo">
+                <img src="imagenes/logo horizontal.png" alt="Logo Guardianes Verdes">
+            </div>
+            <!-- Botón hamburguesa -->
+        <button class="menu-toggle">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        
+        <!-- Menú de navegación -->
+        <nav class="nav-links">
+            <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="proyecto.html">Proyecto</a></li>
+                    <li><a href="mascota.html">Mascota</a></li>
+                    <li><a href="galeria.html">Galería</a></li>
+                    <li><a href="interactivo.html">Interactivo</a></li>
+                    <li><a href="videojuego.html">Videojuego</a></li>
+                </ul>
+            </nav>
+        </div>
+        <script>
+            // Toggle del menú
+document.querySelector('.menu-toggle').addEventListener('click', function() {
+    this.classList.toggle('active');
+    document.querySelector('.nav-links').classList.toggle('active');
+});
+
+// Cerrar menú al hacer click en enlace
+document.querySelectorAll('.nav-links ul li a').forEach(link => {
+    link.addEventListener('click', () => {
+        document.querySelector('.menu-toggle').classList.remove('active');
+        document.querySelector('.nav-links').classList.remove('active');
+    });
+});
+
+// Cerrar menú al hacer click fuera
+document.addEventListener('click', (e) => {
+    if (!e.target.closest('.nav-links') && !e.target.closest('.menu-toggle')) {
+        document.querySelector('.menu-toggle').classList.remove('active');
+        document.querySelector('.nav-links').classList.remove('active');
+    }
+});
+        </script>
+    </header>
+
+    <main class="contenedor-maximo">
+        <!-- Visita 1 -->
+        <section class="seccion-galeria">
+            <h2 class="titulo-seccion">Visita 1 - Creación de Personajes</h2>
+            <div class="carrusel-contenedor">
+                <div class="carrusel-interno">
+                    <div class="item-carrusel">
+                        <img src="imagenes/foto1 primer dia.JPG" alt="Trabajo en equipo" class="imagen-carrusel">
+                        <div class="info-carrusel">
+                            <h3>Trabajo en equipo</h3>
+                            <p>Explicación del proyecto</p>
+                        </div>
+                    </div>
+                    
+                    <div class="item-carrusel">
+                        <img src="imagenes/foto2 primer dia.JPG" alt="Brainstorming" class="imagen-carrusel">
+                        <div class="info-carrusel">
+                            <h3>Brainstorming</h3>
+                            <p>Generación de ideas</p>
+                        </div>
+                    </div>
+                    
+                    <div class="item-carrusel">
+                        <img src="imagenes/foto3 primer dia.jpg" alt="Prototipado" class="imagen-carrusel">
+                        <div class="info-carrusel">
+                            <h3>Prototipado</h3>
+                            <p>Primeros bocetos</p>
+                        </div>
+                    </div>
+                    
+                    <div class="item-carrusel">
+                        <img src="imagenes/foto4 primer dia.jpg" alt="Diseño colaborativo" class="imagen-carrusel">
+                        <div class="info-carrusel">
+                            <h3>Diseño colaborativo</h3>
+                            <p>Trabajo en grupo</p>
+                        </div>
+                    </div>
+                    
+                    <div class="item-carrusel">
+                        <img src="imagenes/foto5 primer dia.jpg" alt="Bocetos" class="imagen-carrusel">
+                        <div class="info-carrusel">
+                            <h3>Bocetos iniciales</h3>
+                            <p>Primeras ideas</p>
+                        </div>
+                    </div>
+                    
+                    <div class="item-carrusel">
+                        <img src="imagenes/foto6 primer dia.JPG" alt="Presentación" class="imagen-carrusel">
+                        <div class="info-carrusel">
+                            <h3>Presentación final</h3>
+                            <p>Demostración de resultados</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Visita 2 -->
+        <section class="seccion-galeria">
+            <h2 class="titulo-seccion">Visita 2 - Desarrollo de Escenarios</h2>
+            <div class="carrusel-contenedor">
+                <div class="carrusel-interno">
+                    <div class="item-carrusel">
+                        <img src="imagenes/foto1 segundo dia.jpg" alt="Brainstorming" class="imagen-carrusel">
+                        <div class="info-carrusel">
+                            <h3>Brainstorming</h3>
+                            <p>Generación de ideas</p>
+                        </div>
+                    </div>
+                    <div class="item-carrusel">
+                        <img src="imagenes/foto2 segundo dia.jpeg" alt="Brainstorming" class="imagen-carrusel">
+                        <div class="info-carrusel">
+                            <h3>Brainstorming</h3>
+                            <p>Generación de ideas</p>
+                        </div>
+                    </div>
+                    <div class="item-carrusel">
+                        <img src="imagenes/foto3 segundo dia.jpg" alt="Brainstorming" class="imagen-carrusel">
+                        <div class="info-carrusel">
+                            <h3>Brainstorming</h3>
+                            <p>Generación de ideas</p>
+                        </div>
+                    </div>
+                    <div class="item-carrusel">
+                        <img src="imagenes/foto4 segundo dia.jpg" alt="Brainstorming" class="imagen-carrusel">
+                        <div class="info-carrusel">
+                            <h3>Brainstorming</h3>
+                            <p>Generación de ideas</p>
+                        </div>
+                    </div>
+                    <div class="item-carrusel">
+                        <img src="imagenes/foto5 segundo dia.jpg" alt="Brainstorming" class="imagen-carrusel">
+                        <div class="info-carrusel">
+                            <h3>Brainstorming</h3>
+                            <p>Generación de ideas</p>
+                        </div>
+                    </div>
+                    <div class="item-carrusel">
+                        <img src="imagenes/foto6 segundo dia.png" alt="Brainstorming" class="imagen-carrusel">
+                        <div class="info-carrusel">
+                            <h3>Brainstorming</h3>
+                            <p>Generación de ideas</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <section class="teams-section">
+        <div class="container">
+            <h2 class="section-title">🌍 Tips Ambientales 🌱</h2>
+            <div class="team-grid">
+                <!-- Energía Renovable -->
+                <div class="team-card" data-tip="energia">
+                    <div class="team-content">
+                        <h3>⚡ Energía Limpia 🌞</h3>
+                    </div>
+                </div>
+    
+                <!-- Abejas -->
+                <div class="team-card" data-tip="abejas">
+                    <div class="team-content">
+                        <h3>🐝 Guardianes de la Vida 🌸</h3>
+                    </div>
+                </div>
+    
+                <!-- Las 3R -->
+                <div class="team-card" data-tip="tresr">
+                    <div class="team-content">
+                        <h3>♻️ Revolución 3R 🔄</h3>
+                    </div>
+                </div>
+    
+                <!-- Deforestación -->
+                <div class="team-card" data-tip="deforestacion">
+                    <div class="team-content">
+                        <h3>🌳 Pulmones en Peligro 🔥</h3>
+                    </div>
+                </div>
+    
+                <!-- Consumo Responsable -->
+                <div class="team-card" data-tip="consumo">
+                    <div class="team-content">
+                        <h3>🛍️ Compra Consciente 💚</h3>
+                    </div>
+                </div>
+    
+                <!-- Huella Ecológica -->
+                <div class="team-card" data-tip="huella">
+                    <div class="team-content">
+                        <h3>👣 Huella Verde 🌎</h3>
+                    </div>
+                </div>
+    
+                <!-- Plásticos -->
+                <div class="team-card" data-tip="plasticos">
+                    <div class="team-content">
+                        <h3>🚫 Adiós Plásticos 🐢</h3>
+                    </div>
+                </div>
+
+                <!-- Contaminación del Agua -->
+            <div class="team-card" data-tip="agua">
+                <div class="team-content">
+                    <h3>💧 Agua Pura 🌊</h3>
+                </div>
+            </div>
+
+            <!-- Protección Solar -->
+            <div class="team-card" data-tip="sol">
+                <div class="team-content">
+                    <h3>☀️ Protección Solar 🕶️</h3>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <!-- Modal -->
+    <div id="tipModal" class="tip-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-slider">
+                <div class="modal-slides"></div>
+                <button class="modal-arrow prev">❮</button>
+                <button class="modal-arrow next">❯</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const modal = document.getElementById('tipModal');
+            const closeBtn = modal.querySelector('.close-modal');
+            const modalSlides = modal.querySelector('.modal-slides');
+            const modalArrows = modal.querySelectorAll('.modal-arrow');
+            
+            const tipsData = {
+                    energia: [
+                        'imagenes/energia renovable1.jpg',
+                        'imagenes/energia renovable2.jpg',
+                        'imagenes/energia renovable3.jpg'
+                    ],
+                    abejas: [
+                        'imagenes/abejas1.jpg',
+                        'imagenes/abejas2.jpg',
+                        'imagenes/abejas3.jpg',
+                        'imagenes/abejas4.jpg'
+                    ],
+                    tresr: [
+                        'imagenes/3R-1.jpg',
+                        'imagenes/3R-2.jpg',
+                        'imagenes/3R-3.jpg',
+                        'imagenes/3R-4.jpg'
+                    ],
+                    deforestacion: [
+                        'imagenes/Deforestacion1.jpg',
+                        'imagenes/Deforestacion2.jpg',
+                        'imagenes/Deforestacion3.jpg',
+                        'imagenes/Deforestacion4.jpg',
+                        'imagenes/Deforestacion5.jpg'
+                    ],
+                    consumo: [
+                        'imagenes/Consumo1.jpg',
+                        'imagenes/Consumo2.jpg',
+                        'imagenes/Consumo3.jpg',
+                        'imagenes/Consumo4.jpg'
+                    ],
+                    huella: [
+                        'imagenes/HuellaEcologica1.jpg',
+                        'imagenes/HuellaEcologica2.jpg',
+                        'imagenes/HuellaEcologica3.jpg',
+                        'imagenes/HuellaEcologica4.jpg'
+                    ],
+                    plasticos: [
+                        'imagenes/plasticos-1.jpg',
+                        'imagenes/Plasticos-2.jpg',
+                        'imagenes/Plasticos-3.jpg',
+                        'imagenes/Plasticos-4.jpg'
+                    ],
+                    agua: [
+                        'imagenes/contaminacionAgua1.jpg',
+                        'imagenes/contaminacionAgua2.jpg',
+                        'imagenes/contaminacionAgua3.jpg',
+                        'imagenes/contaminacionAgua4.jpg',
+                        'imagenes/contaminacionAgua5.jpg'
+                    ],
+                    sol: [
+                        'imagenes/sol1.jpg',
+                        'imagenes/sol2.jpg',
+                        'imagenes/sol3.jpg',
+                        'imagenes/sol4.jpg'
+                     ]
+                };
+            
+                let currentSlide = 0;
+            let currentTip = '';
+            let touchStartX = 0;
+
+            // Eventos para las tarjetas
+            document.querySelectorAll('.team-card').forEach(card => {
+                card.addEventListener('click', () => {
+                    currentTip = card.dataset.tip;
+                    loadSlides();
+                    modal.style.display = 'block';
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+
+            function loadSlides() {
+                modalSlides.innerHTML = '';
+                tipsData[currentTip].forEach((img, index) => {
+                    const slide = document.createElement('div');
+                    slide.className = 'modal-slide';
+                    slide.innerHTML = `<img src="${img}" alt="${currentTip} ${index + 1}">`;
+                    modalSlides.appendChild(slide);
+                });
+                currentSlide = 0;
+                updateSlidePosition();
+            }
+
+            // Navegación táctil
+            modalSlides.addEventListener('touchstart', e => {
+                touchStartX = e.touches[0].clientX;
+            });
+
+            modalSlides.addEventListener('touchend', e => {
+                const touchEndX = e.changedTouches[0].clientX;
+                const diffX = touchStartX - touchEndX;
+                
+                if (Math.abs(diffX) > 50) {
+                    if (diffX > 0) {
+                        currentSlide = currentSlide < modalSlides.children.length - 1 ? currentSlide + 1 : 0;
+                    } else {
+                        currentSlide = currentSlide > 0 ? currentSlide - 1 : modalSlides.children.length - 1;
+                    }
+                    updateSlidePosition();
+                }
+            });
+
+            // Navegación con flechas
+            modalArrows.forEach(arrow => {
+                arrow.addEventListener('click', () => {
+                    const totalSlides = modalSlides.children.length;
+                    if(arrow.classList.contains('prev')) {
+                        currentSlide = currentSlide > 0 ? currentSlide - 1 : totalSlides - 1;
+                    } else {
+                        currentSlide = currentSlide < totalSlides - 1 ? currentSlide + 1 : 0;
+                    }
+                    updateSlidePosition();
+                });
+            });
+
+            function updateSlidePosition() {
+                modalSlides.style.transform = `translateX(-${currentSlide * 100}%)`;
+            }
+
+            // Cerrar modal
+            function closeModal() {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+
+            closeBtn.addEventListener('click', closeModal);
+            window.addEventListener('click', (e) => e.target === modal && closeModal());
+            document.addEventListener('keyup', (e) => e.key === 'Escape' && closeModal());
+        });
+    </script>
+
+<section class="video-alternate-section">
+    <h2 class="section-main-title">Contenido Educativo</h2>
+    
+   <!-- Video 1 - Izquierda -->
+<div class="video-pair">
+    <div class="video-container left">
+        <div class="video-wrapper">
+            <iframe 
+                src="https://www.youtube.com/embed/ABCD1234xyz" 
+                title="¡El juego que salvará el planeta!" 
+                allowfullscreen>
+            </iframe>
+        </div>
+    </div>
+    <div class="info-container right">
+        <h3 class="video-title">🌍🎮 ¡El juego que salvará el planeta!🌱✨</h3>
+            <div class="video-description">
+                <p>¿Qué pasaría si el destino del planeta estuviera en tus manos? 🌎💚 En este primer vistazo a nuestro spot live-action, te mostramos un adelanto del videojuego que estamos creando, donde aprenderás a proteger el medio ambiente mientras te diviertes. 🕹️♻️
+                </p>
+                <ul>
+                    <li>🚀 Únete a la aventura y conviértete en un Guardián Verde.</li>
+                    <li>🔔 ¡Suscríbete y no te pierdas nada!</li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Video 2 - Derecha -->
+    <div class="video-pair">
+        <div class="info-container left">
+            <h3 class="video-title">🌱 Huella Ecológica</h3>
+            <div class="video-description">
+                <p>Reduce tu impacto ambiental:</p>
+                <ul>
+                    <li>📊 Calculadora interactiva</li>
+                    <li>💡 Consejos prácticos diarios</li>
+                    <li>📈 Seguimiento de progreso</li>
+                </ul>
+            </div>
+        </div>
+        <div class="video-container right">
+            <div class="video-wrapper">
+                <iframe 
+                    src="https://www.youtube.com/embed/VIDEO_ID_2" 
+                    title="Video educativo 2" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="social-media">
+        <a href="https://www.facebook.com/share/1GmM4wn7yf/" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.instagram.com/guardianesverdes_7/" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.tiktok.com/@guardianesverdes1?_t=ZS-8ueEfgTIrSu&_r=1" target="_blank"><i class="fab fa-tiktok"></i></a>
+        <a href="https://www.youtube.com/@Guardianes_Verdes" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://x.com/GuardianesVer_" target="_blank"><i class="fab fa-twitter"></i></a>
+    </div>
+</footer>
+
+<script>
+
+    // Animación al hacer scroll
+    const teamMembers = document.querySelectorAll('.team-member');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    teamMembers.forEach(member => {
+        observer.observe(member);
+    });
+
+    // Cambio de header al hacer scroll
+    window.addEventListener('scroll', () => {
+        const header = document.querySelector('header');
+        if (window.scrollY > 50) {
+            header.style.background = 'rgba(28, 60, 29, 0.95)';
+        } else {
+            header.style.background = 'rgba(28, 60, 29, 0.9)';
+        }
+    });
+
+    // Animación del menú hamburguesa
+    document.getElementById('menu-toggle').addEventListener('change', function() {
+        const menuIcon = document.querySelector('.menu-icon');
+        if (this.checked) {
+            menuIcon.classList.add('active');
+        } else {
+            menuIcon.classList.remove('active');
+        }
+    });
+
+    // Cerrar menú al hacer click en un enlace (mobile)
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            document.getElementById('menu-toggle').checked = false;
+        });
+    });
+
+    
+</script>
+</body>
+</html>

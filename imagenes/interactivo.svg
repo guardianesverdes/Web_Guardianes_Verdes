@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Capa_2" data-name="Capa 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 336.69 124.13">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #8cc63f;
+      }
+
+      .cls-2 {
+        fill: #4aa032;
+      }
+
+      .cls-3 {
+        fill: #14161c;
+        font-family: InkFree, 'Ink Free';
+        font-size: 69.37px;
+      }
+    </style>
+  </defs>
+  <g id="Capa_1-2" data-name="Capa 1">
+    <g>
+      <rect class="cls-2" x="0" y="11.27" width="334.49" height="112.86" rx="50.47" ry="50.47"/>
+      <rect class="cls-1" x="2.19" y="0" width="334.49" height="112.86" rx="50.47" ry="50.47"/>
+      <text class="cls-3" transform="translate(24.24 76.89) scale(.8 1)"><tspan x="0" y="0">Interactivo</tspan></text>
+    </g>
+  </g>
+</svg>
