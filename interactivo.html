@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Interactivo - Guardianes Verdes</title>
-    <link href="funtes/gill-sans-2/Gill Sans Heavy Italic.otf" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
@@ -63,7 +63,7 @@ document.addEventListener('click', (e) => {
             <div class="ar-content">
                 <h2 class="ar-title">¡Vive la Experiencia en<br><span>Realidad Aumentada</span></h2>
                 <div class="ar-character"></div>
-                <a href="https://goye1410.github.io/tortuga3bq348/" 
+                <a href="https://guardianesverdes.github.io/realidadaumentadaguardianesverdes/" 
                    target="_blank" 
                    rel="noopener noreferrer" 
                    class="btn-ar">
@@ -542,10 +542,7 @@ document.addEventListener('click', (e) => {
             <h3>Palabras a buscar:</h3>
             <ul id="lista-palabras"></ul>
         </div>
-        <button id="reiniciar-sopa">
-            <span class="reset-icon"></span>
-            Nuevo Juego
-        </button>
+        <button id="reiniciar-sopa">Nuevo Juego</button>
     </section>
 
     <script>
@@ -556,7 +553,6 @@ document.addEventListener('click', (e) => {
                 "REDUCIR", "ECOLOGICO", "CONCIENCIA"
             ];
 
-            // Elementos del DOM
             const elementos = {
                 sopaContainer: document.getElementById('sopa-container'),
                 listaPalabras: document.getElementById('lista-palabras'),
@@ -564,7 +560,6 @@ document.addEventListener('click', (e) => {
                 cronometro: document.getElementById('cronometro')
             };
 
-            // Variables de estado
             let estado = {
                 sopa: [],
                 tamaño: 15,
@@ -576,7 +571,6 @@ document.addEventListener('click', (e) => {
                 posicionesPalabras: []
             };
 
-            // Funciones principales
             function inicializarJuego() {
                 crearSopa();
                 mostrarPalabras();
@@ -588,10 +582,7 @@ document.addEventListener('click', (e) => {
                 estado.sopa = Array.from({ length: estado.tamaño }, () => Array(estado.tamaño).fill(''));
                 estado.posicionesPalabras = [];
                 
-                palabras.forEach(palabra => {
-                    insertarPalabra(palabra);
-                });
-                
+                palabras.forEach(palabra => insertarPalabra(palabra));
                 rellenarEspaciosVacios();
                 renderizarSopa();
             }
@@ -657,30 +648,38 @@ document.addEventListener('click', (e) => {
             function manejarSeleccion(celda) {
                 if (!estado.tiempoInicio) iniciarCronometro();
                 
-                celda.classList.toggle('seleccionado');
+                if (estado.seleccionadas.length === 0 || 
+                    !esSeleccionContigua(celda, estado.seleccionadas[estado.seleccionadas.length - 1])) {
+                    limpiarSeleccion();
+                }
+                
+                celda.classList.add('seleccionado');
                 const posicion = {
                     fila: parseInt(celda.dataset.fila),
                     columna: parseInt(celda.dataset.columna)
                 };
-
-                const index = estado.seleccionadas.findIndex(p => 
-                    p.fila === posicion.fila && p.columna === posicion.columna
-                );
-
-                if (index === -1) {
-                    estado.seleccionadas.push({ ...posicion, celda });
-                } else {
-                    estado.seleccionadas.splice(index, 1);
-                }
-
+                
+                estado.seleccionadas.push({ ...posicion, celda });
                 verificarPalabra();
+            }
+
+            function esSeleccionContigua(nuevaCelda, ultimaSeleccion) {
+                const diffFila = Math.abs(nuevaCelda.dataset.fila - ultimaSeleccion.fila);
+                const diffColumna = Math.abs(nuevaCelda.dataset.columna - ultimaSeleccion.columna);
+                return (diffFila <= 1 && diffColumna <= 1) && (diffFila + diffColumna > 0);
+            }
+
+            function limpiarSeleccion() {
+                estado.seleccionadas.forEach(c => c.celda.classList.remove('seleccionado'));
+                estado.seleccionadas = [];
             }
 
             function verificarPalabra() {
                 if (estado.seleccionadas.length < 2) return;
 
+                const direccion = determinarDireccion();
                 const palabra = estado.seleccionadas
-                    .sort((a, b) => a.fila - b.fila || a.columna - b.columna)
+                    .sort((a, b) => direccion === 'horizontal' ? a.columna - b.columna : a.fila - b.fila)
                     .map(c => c.celda.textContent)
                     .join('');
 
@@ -690,8 +689,17 @@ document.addEventListener('click', (e) => {
                 }
             }
 
+            function determinarDireccion() {
+                const primera = estado.seleccionadas[0];
+                const ultima = estado.seleccionadas[estado.seleccionadas.length - 1];
+                return primera.fila === ultima.fila ? 'horizontal' : 'vertical';
+            }
+
             function actualizarInterfaz(palabra) {
-                // Actualizar lista
+                document.querySelectorAll('#sopa-container .seleccionado').forEach(celda => {
+                    celda.classList.remove('seleccionado');
+                });
+
                 document.querySelectorAll('#lista-palabras li').forEach(li => {
                     if (li.textContent === palabra) {
                         li.style.color = estado.colores[palabra];
@@ -699,7 +707,6 @@ document.addEventListener('click', (e) => {
                     }
                 });
 
-                // Colorear celdas
                 const posicion = estado.posicionesPalabras.find(p => p.palabra === palabra);
                 if (posicion) {
                     for (let i = 0; i < palabra.length; i++) {
@@ -715,7 +722,7 @@ document.addEventListener('click', (e) => {
                         }
                         if (celda) {
                             celda.style.backgroundColor = estado.colores[palabra];
-                            celda.classList.remove('seleccionado');
+                            celda.style.animation = 'celebracion 0.6s ease';
                         }
                     }
                 }
@@ -723,13 +730,17 @@ document.addEventListener('click', (e) => {
             }
 
             function reiniciarJuego() {
-                estado.seleccionadas = [];
+                limpiarSeleccion();
                 estado.palabrasEncontradas.clear();
                 estado.tiempoInicio = null;
                 elementos.cronometro.textContent = "Tiempo: 00:00";
                 clearInterval(estado.intervalo);
                 crearSopa();
                 asignarColores();
+                document.querySelectorAll('#lista-palabras li').forEach(li => {
+                    li.style.color = '';
+                    li.style.textDecoration = '';
+                });
             }
 
             function iniciarCronometro() {
@@ -753,7 +764,6 @@ document.addEventListener('click', (e) => {
                 });
             }
 
-            // Inicializar juego
             inicializarJuego();
         });
     </script>
@@ -899,7 +909,7 @@ document.addEventListener('click', (e) => {
 </script>
 
 <section id="colorear-mascota">
-    <h2 class="section-title">🎨 Colorea a tu Mascota</h2>
+    <h2 class="section-title">🎨 Colorea a tu Mascota 🎨</h2>
     <div class="coloring-container">
         <div class="reference-container">
             <div class="reference-label">Modelo</div>
@@ -907,7 +917,7 @@ document.addEventListener('click', (e) => {
         </div>
         
         <div class="canvas-wrapper">
-            <canvas id="mascotaCanvas" width="500" height="500"></canvas>
+            <canvas id="mascotaCanvas"></canvas>
         </div>
     </div>
 
@@ -940,57 +950,55 @@ document.addEventListener('click', (e) => {
         let selectedColor = '#000000';
         let img = new Image();
         let initialImageData = null;
-        
-        // Variables de posición de la imagen
-        let imgX = 0;
-        let imgY = 0;
-        let imgWidth = 0;
-        let imgHeight = 0;
+        let imgX = 0, imgY = 0, imgWidth = 0, imgHeight = 0;
+        let devicePixelRatio = window.devicePixelRatio || 1;
 
         function initializeCanvas() {
             const container = canvas.parentElement;
             const containerWidth = container.clientWidth;
             const containerHeight = container.clientHeight;
             
-            // Configurar dimensiones del canvas
-            canvas.width = containerWidth;
-            canvas.height = containerHeight;
+            // Configurar canvas para alta resolución
+            canvas.style.width = containerWidth + 'px';
+            canvas.style.height = containerHeight + 'px';
+            canvas.width = containerWidth * devicePixelRatio;
+            canvas.height = containerHeight * devicePixelRatio;
             
-            // Calcular relación de aspecto
+            // Ajustar escala del contexto
+            ctx.scale(devicePixelRatio, devicePixelRatio);
+            
+            // Calcular dimensiones de la imagen
             const imgAspect = img.naturalWidth / img.naturalHeight;
             const containerAspect = containerWidth / containerHeight;
 
-            if (containerAspect > imgAspect) {
-                // Contenedor más ancho que la imagen
-                imgHeight = containerHeight;
-                imgWidth = imgHeight * imgAspect;
-                imgX = (containerWidth - imgWidth) / 2;
-                imgY = 0;
-            } else {
-                // Contenedor más alto que la imagen
+            if (imgAspect > containerAspect) {
                 imgWidth = containerWidth;
-                imgHeight = imgWidth / imgAspect;
-                imgX = 0;
-                imgY = (containerHeight - imgHeight) / 2;
+                imgHeight = containerWidth / imgAspect;
+            } else {
+                imgHeight = containerHeight;
+                imgWidth = containerHeight * imgAspect;
             }
-
-            // Dibujar imagen centrada
-            ctx.drawImage(img, imgX, imgY, imgWidth, imgHeight);
             
-            // Guardar estado inicial
-            if (!initialImageData) {
-                initialImageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-            }
+            // Centrar la imagen
+            imgX = (containerWidth - imgWidth) / 2;
+            imgY = (containerHeight - imgHeight) / 2;
+
+            // Dibujar imagen inicial
+            ctx.drawImage(img, imgX, imgY, imgWidth, imgHeight);
+            initialImageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
         }
 
         function getCanvasPosition(event) {
             const rect = canvas.getBoundingClientRect();
-            const clientX = event.clientX || (event.touches[0] ? event.touches[0].clientX : 0);
-            const clientY = event.clientY || (event.touches[0] ? event.touches[0].clientY : 0);
+            const scaleX = canvas.width / rect.width;
+            const scaleY = canvas.height / rect.height;
+            
+            const clientX = event.clientX || (event.touches?.[0]?.clientX || 0);
+            const clientY = event.clientY || (event.touches?.[0]?.clientY || 0);
             
             return {
-                x: clientX - rect.left,
-                y: clientY - rect.top
+                x: (clientX - rect.left) * scaleX / devicePixelRatio,
+                y: (clientY - rect.top) * scaleY / devicePixelRatio
             };
         }
 
@@ -1016,7 +1024,7 @@ document.addEventListener('click', (e) => {
             
             ctx.lineTo(pos.x, pos.y);
             ctx.strokeStyle = selectedColor;
-            ctx.lineWidth = 8;
+            ctx.lineWidth = 8 * (canvas.width / canvas.offsetWidth);
             ctx.lineCap = 'round';
             ctx.stroke();
             ctx.beginPath();
@@ -1045,7 +1053,6 @@ document.addEventListener('click', (e) => {
                 colors.forEach(c => c.classList.remove('active'));
                 color.classList.add('active');
                 
-                // Animación de selección
                 color.animate([
                     { transform: 'scale(1)' },
                     { transform: 'scale(1.2)' },
@@ -1056,13 +1063,27 @@ document.addEventListener('click', (e) => {
 
         // Botón de reinicio
         resetBtn.addEventListener('click', () => {
-            ctx.putImageData(initialImageData, 0, 0);
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.drawImage(img, imgX, imgY, imgWidth, imgHeight);
+            initialImageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+            
+            resetBtn.animate([
+                { transform: 'rotate(0deg) scale(1)' },
+                { transform: 'rotate(360deg) scale(1.1)' },
+                { transform: 'rotate(0deg) scale(1)' }
+            ], { duration: 600 });
         });
 
-        // Cargar imagen
+        // Carga de imagen y manejo de resize
         img.onload = function() {
             initializeCanvas();
-            window.addEventListener('resize', initializeCanvas);
+            window.addEventListener('resize', () => {
+                initializeCanvas();
+                setTimeout(() => {
+                    ctx.drawImage(img, imgX, imgY, imgWidth, imgHeight);
+                    initialImageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+                }, 100);
+            });
         };
         img.src = 'imagenes/mascota colorear.svg';
     });
@@ -1079,7 +1100,7 @@ document.addEventListener('click', (e) => {
                 <a href="https://puzzel.org/es/jigsaw/play?p=-OO8tP1dNtvmEEdGCESS" 
                    class="puzzle-action" 
                    target="_blank">
-                   🍃 ¡Comenzar Aventura! 🍃
+                   🍃 ¡Comenza la Aventura! 🍃
                 </a>
             </div>
         </div>
@@ -1093,7 +1114,7 @@ document.addEventListener('click', (e) => {
         <a href="https://www.facebook.com/share/1GmM4wn7yf/" target="_blank"><i class="fab fa-facebook"></i></a>
         <a href="https://www.instagram.com/guardianesverdes_7/" target="_blank"><i class="fab fa-instagram"></i></a>
         <a href="https://www.tiktok.com/@guardianesverdes1?_t=ZS-8ueEfgTIrSu&_r=1" target="_blank"><i class="fab fa-tiktok"></i></a>
-        <a href="https://www.youtube.com/@Guardianes_Verdes" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.youtube.com/@Shelly_GuardianVerde" target="_blank"><i class="fab fa-youtube"></i></a>
         <a href="https://x.com/GuardianesVer_" target="_blank"><i class="fab fa-twitter"></i></a>
     </div>
 </footer>
